@@ -66,7 +66,10 @@ pl1<- ggplot(data=trialFreq, aes(x=Var1, y= Freq,  group=1)) +
   geom_point() +
   ggtitle("# of submitted forms by date") +
   labs(y="# of forms",x="Date") + 
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))  
+  theme(axis.text.x = element_text(angle = 90, hjust = 1), 
+        plot.title = element_text(size = 7), 
+        axis.text = element_text(size=6),
+        axis.title=element_text(size=6)) 
 #The frequency table based on two variables (Timestamp & Weed content) was built to check quality of the data as reflected by the scores on weed control 
 trialFreqWeed<- rename(count(trialDF, Timestamp, weed), Freq = n)
 pl2<- ggplot() + 
@@ -76,7 +79,12 @@ pl2<- ggplot() +
   scale_fill_brewer(palette = "RdYlGn") +
   ggtitle("# of submitted forms and weed score" )+
   labs(y="# of forms",x="Date", fill="Score") + 
-    theme(axis.text.x = element_text(angle = 90, hjust = 1))
+  theme(axis.text.x = element_text(angle = 90, hjust = 1), 
+        plot.title = element_text(size = 7), 
+        axis.text = element_text(size=6),
+        axis.title=element_text(size=6),
+        legend.text=element_text(size=6),
+        legend.title=element_text(size=6))
 #The frequency table based on two variables (Timestamp & Trial Performance) was built to check quality of the data as reflected by the scores on overall trial performance
 trialFreqFert<- rename(count(trialDF, Timestamp, trialPerformance), Freq = n)
 pl3<- ggplot() + 
@@ -86,14 +94,22 @@ pl3<- ggplot() +
   scale_fill_brewer(palette = "RdYlGn") +
   ggtitle("# of submitted forms and trial performance" )+
   labs(y="# of forms",x="Date", fill="Score") + 
-    theme(axis.text.x = element_text(angle = 90, hjust = 1))
+  theme(axis.text.x = element_text(angle = 90, hjust = 1), 
+        plot.title = element_text(size = 7), 
+        axis.text = element_text(size=6),
+        axis.title=element_text(size=6),
+        legend.text=element_text(size=6),
+        legend.title=element_text(size=6))
 #In order to monitor the observed effects of fertilizer (average and spread), the subset of data was created by specifying that we want only treatment records to be included.
 trialSubset <- trialDF[trialDF$type == "t", ]
 pl4 <- ggplot(trialSubset, aes(factor(Timestamp), weight)) +
       geom_boxplot() +
       labs(y="weight",x="Date") +
     ggtitle("Observed effects of fertilizers") +
-    theme(axis.text.x = element_text(angle = 90, hjust = 1))
+  theme(axis.text.x = element_text(angle = 90, hjust = 1), 
+        plot.title = element_text(size = 7), 
+        axis.text = element_text(size=6),
+        axis.title=element_text(size=6))
 ```
 
 ```{r, echo=FALSE }

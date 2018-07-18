@@ -45,7 +45,7 @@ gs_auth(new_user = TRUE)
 gs_ls() 
 trialTbl <- gs_title("TrialDataCollection")
 trialDF <- gs_read(trialTbl)
-print(str(trialDF))
+str(trialDF)
 ```
 ```{r, echo = FALSE}
 library(dplyr)
@@ -130,3 +130,4 @@ multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
 multiplot(pl1, pl2, pl3, pl4, layout = matrix(c(1, 2, 3, 4), nrow = 2))
 ```
 
+![Final output](images/final_output.png)

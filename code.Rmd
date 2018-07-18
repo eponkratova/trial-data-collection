@@ -36,7 +36,7 @@ The developed app is connected to a [Google sheet](https://docs.google.com/sprea
 
 To automate the quality control process as well as visualization of results, a simple dashboard was developed using R.
 
-```{r}
+```{r, echo = TRUE }
 #Loading all packages requred for building the graphs
 install.packages("googlesheets")
 library(googlesheets)
@@ -50,9 +50,9 @@ gs_auth(new_user = TRUE)
 gs_ls() 
 trialTbl <- gs_title("TrialDataCollection")
 trialDF <- gs_read(trialTbl)
-print(trialDF)
+print(str(trialDF))
 ```
-```{r}
+```{r, echo = TRUE}
 library(dplyr)
 library(ggplot2)
 library(RColorBrewer)
@@ -97,7 +97,7 @@ pl4 <- ggplot(trialSubset, aes(factor(Timestamp), weight)) +
     ggtitle("Observed effects of fertilizers") 
 ```
 
-```{r, echo=FALSE}
+```{r, echo = TRUE}
 library(grid)
 multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
   # Make a list from the ... arguments and plotlist

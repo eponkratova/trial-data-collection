@@ -43,6 +43,9 @@ library(googlesheets)
 install.packages("ggplot2")
 install.packages("RColorBrewer")
 install.packages("grid")
+```
+
+```{r echo=FALSE }
 #To extract data from the Google sheet (see the link above), R was connected to Google Sheets.
 #Authenticating Google account
 gs_auth(new_user = TRUE)
@@ -52,7 +55,7 @@ trialTbl <- gs_title("TrialDataCollection")
 trialDF <- gs_read(trialTbl)
 print(str(trialDF))
 ```
-```{r echo=FALSE }
+```{r echo = FALSE}
 library(dplyr)
 library(ggplot2)
 library(RColorBrewer)
